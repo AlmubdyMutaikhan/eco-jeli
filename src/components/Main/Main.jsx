@@ -1,5 +1,5 @@
 import NewsSlider from '../NewsSlider/NewsSlider';
-
+import About from '../About/About';
 import './Main.css';
 
 const Main = () => {
@@ -10,7 +10,7 @@ const Main = () => {
             </div>
             <div className='main-content'>
                <NewsSlider style={{height:'50%', width:'100%'}}/>
-               
+               <About/>
             </div>
             <div className='main-side' style={{alignItems:'flex-end'}}>
                 <img src={require('../../media/onetree.jpg')} alt="tree"/>

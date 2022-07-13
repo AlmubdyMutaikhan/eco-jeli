@@ -1,0 +1,41 @@
+.about-container {
+    height: 42%;
+    width: 100%;
+    background: white;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-height: 50%;
+}
+
+.header-container {
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+
+.header-container img {
+    width: 40%;
+    height: 90%;
+}
+
+.about-text-text {
+    width: 50%;
+    height: auto;
+}
+
+.about-container .about-img {
+    background: url('../../media/logo.png');
+    height: 100%;
+    width: 50%;
+    background-size: cover;
+    
+}

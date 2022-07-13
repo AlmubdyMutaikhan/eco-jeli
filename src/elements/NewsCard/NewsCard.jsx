@@ -1,9 +1,9 @@
 import './NewsCard.css';
 
-const NewsCard = ({style}) => {
+const NewsCard = ({style, img}) => {
     return (
         <div className="news-card-container">
-            <img src={'https://vestikavkaza.ru/upload/2019-08-02/15647790515d44a22bc817c9.67037588.jpeg'} />
+            <img src={img} />
             <div className='news-card-text'>
                 <p>  
                     НОВОСТИ НОВОСТИ НОВОСТИ АЕЕЕЕ!!!
