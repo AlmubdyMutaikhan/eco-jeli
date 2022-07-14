@@ -12,7 +12,7 @@ const About = () => {
                 />
             </div>
             <div className='about-img'>
-                
+                <img src={require('../../media/club.jpg')} alt="club"/>
             </div>
         </div>
     )

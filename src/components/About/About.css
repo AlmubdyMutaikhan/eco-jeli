@@ -33,9 +33,13 @@
 }
 
 .about-container .about-img {
-    background: url('../../media/logo.png');
     height: 100%;
     width: 50%;
-    background-size: cover;
-    
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-img img {
+    height: 100%;
+    width: 60%;
 }
