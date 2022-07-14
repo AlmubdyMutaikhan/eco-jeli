@@ -1,17 +1,11 @@
-.events-section-container {
-    height: 100vh;
-    width: 100%;
-    background: white;
-    border-top: 0.2px solid #6287482e;
-    display: flex;
-    justify-content: center;
-}
 
 .events-main-section {
-    height: 100%;
-    width: 60%;
+    height: 100vh;
+    width: 100%;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
+    padding-right: 10px;
 }
 
 .events-header {
@@ -27,4 +21,5 @@
     width: 100%;
     background: url('../../media/calendar.jpg');
     background-size: cover;
+    background-position: center;
 }

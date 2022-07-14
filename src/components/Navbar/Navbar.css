@@ -1,4 +1,6 @@
 .navbar-wrapper {
+    position: fixed;
+    z-index: 111111;
     height: 80px;
     min-height: 80px;
     max-height: 100px;
@@ -8,7 +10,7 @@
     justify-content: center;
     align-items: center;
     background: white;
-    border: 0.2px solid #6287482e;
+    border-bottom: 0.2px solid #6287482e;
 }
 
 .navbar-container {

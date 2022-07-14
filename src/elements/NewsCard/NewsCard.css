@@ -1,10 +1,12 @@
 .news-card-container {
     margin-top: 10px;
     height: 45vh;
-    width: 60vw;
+    width: calc(60vw - 10px);
     display: flex;
     border: 5px solid darkgreen;
     border-radius: 15px;
+    justify-content: center;
+
 }
 
 .news-card-container img {
@@ -22,7 +24,7 @@
     height: auto;
     max-width: 100%;
     right: 5px;
-    width: calc(100% - 2%);
+    width: 97%;
     padding: 10px;
     padding-top: 15px;
     border-bottom-left-radius: 15px;

@@ -9,3 +9,18 @@
 :root {
   --inter:'Inter', sans-serif;;
 }
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+::-webkit-scrollbar-track {
+  background: white;
+  border: 0.2px solid rgb(211, 206, 206);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: #A1CA44;
+  border-radius: 50px;
+  height: 20px;
+}

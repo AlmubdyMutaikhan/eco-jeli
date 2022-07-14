@@ -2,12 +2,15 @@
     height: calc(100vh - 80px);
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .main-content {
-    height: 100%;
+    margin-top: 80px;
+    min-height: 100%;
     width: 63%;
+    height: 100%;
+    padding: 10px;
 }
 
 .main-side {

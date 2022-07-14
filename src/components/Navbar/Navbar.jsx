@@ -1,4 +1,7 @@
+import {Link} from 'react-scroll'
+
 import { useState } from 'react';
+
 import './Navbar.css';
 
 const Navbar = () => {
@@ -32,14 +35,22 @@ const Navbar = () => {
                     <h1>Eco Jeli</h1>
                  </div>
                  <div className='navbar-items-container'>
+              
                     <div className='navbar-item'>
-                        {text[1].menu.about}
+                        <Link activeClass="active" to="about" spy={true} offset={-100} smooth={true}>
+                            {text[1].menu.about}
+                        </Link>
+                    </div>
+                
+                    <div className='navbar-item'>
+                        <Link activeClass="active" to="ecoevents" spy={true} offset={-50} smooth={true}>
+                            {text[1].menu.calendar}
+                        </Link>
                     </div>
                     <div className='navbar-item'>
-                        {text[1].menu.calendar}
-                    </div>
-                    <div className='navbar-item'>
-                        {text[1].menu.login}
+                        <Link activeClass="active" to="login" spy={true} offset={0} smooth={true}>
+                            {text[1].menu.login}
+                        </Link>
                     </div>
                  </div>
             </div>

@@ -1,9 +1,9 @@
 import './About.css';
 import Button from '../../elements/Button/Button';
 import Header from '../../elements/Header/Header';
-const About = () => {
+const About = ({style}) => {
     return (
-        <div className="about-container">
+        <div className="about-container" style={style}>
             <div className='about-text'>
                  <Header    text={'Мы группа лю'}
                             title={'О нас'}/>
