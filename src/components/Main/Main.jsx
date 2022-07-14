@@ -2,6 +2,7 @@ import NewsSlider from '../NewsSlider/NewsSlider';
 import About from '../About/About';
 import './Main.css';
 import Events from '../Events/Events';
+import AuthPage from '../AuthPage/AuthPage';
 
 const Main = () => {
     return(
@@ -20,6 +21,7 @@ const Main = () => {
                <NewsSlider style={{height:'50%', width:'calc(100% - 10px)'}}/>
                <About style={{paddingRight:'10px'}}/>
                <Events/> 
+               <AuthPage/>
             </div>
             <img src={require('../../media/onetreeline.jpg')}
                  alt="side trees"

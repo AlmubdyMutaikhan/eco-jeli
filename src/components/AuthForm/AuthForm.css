@@ -1,0 +1,32 @@
+.authform-container {
+    height: auto;
+    min-width: 200px;
+    border: 5px solid #A1CA44;
+    border-radius: 15px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.auth-label {
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.authform-input {
+    width: 100%;
+   
+    height: auto;
+}
+
+.authform-input input {
+    padding: 20px 30px;
+    width: 100%;
+    background: #F2F6FA;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+}

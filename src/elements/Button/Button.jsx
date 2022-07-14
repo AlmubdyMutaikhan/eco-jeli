@@ -1,8 +1,8 @@
 import './Button.css';
 
-const Button = ({style, text, onClick}) => {
+const Button = ({style, text, onClick, hover}) => {
     return (
-        <div    className="button-container"
+        <div    className={"button-container " + hover}
                 style={style}
                 onClick={onClick}
                 >

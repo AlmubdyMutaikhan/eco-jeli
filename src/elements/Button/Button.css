@@ -4,5 +4,13 @@
     color: black;
     border-radius: 7px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s ease-in;
 }
 
+.btnHover:hover {
+    background: #95bd36;
+    font-size: 18px;
+}

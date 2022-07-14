@@ -48,7 +48,7 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className='navbar-item'>
-                        <Link activeClass="active" to="login" spy={true} offset={0} smooth={true}>
+                        <Link activeClass="active" to="login" spy={true} offset={-70} smooth={true}>
                             {text[1].menu.login}
                         </Link>
                     </div>
