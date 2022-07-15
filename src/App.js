@@ -1,13 +1,25 @@
 import './App.css';
-import Footer from './components/Footer/Footer';
+
 import Main from './components/Main/Main';
 import Navbar from './components/Navbar/Navbar';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <Navbar/>
-      <Main/>
+        <Routes>
+          <Route path='/' element={<Main/>}/>
+          <Route path='/myclub' element={<Main/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

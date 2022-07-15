@@ -1,5 +1,5 @@
 import {Link} from 'react-scroll'
-
+import { Link as NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import './Navbar.css';
@@ -32,7 +32,10 @@ const Navbar = () => {
                     <img src={require('../../media/logo.png')}
                          alt="logo"
                     />
-                    <h1>Eco Jeli</h1>
+                    <NavLink to='/'>
+                        <h1>Eco Jeli</h1>
+                    </NavLink>
+                 
                  </div>
                  <div className='navbar-items-container'>
               
