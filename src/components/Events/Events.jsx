@@ -8,7 +8,9 @@ const Events = () => {
                     <Header
                     title="ЭКО-события"
                     text="Бла бла бла бала бола балобол балоабол" 
-                    mtop="-20px"
+                    
+                    icon={require('../../media/calendaricon.jpeg')}
+                    calendaricon="calendaricon"
                     />
                     
                 </div>

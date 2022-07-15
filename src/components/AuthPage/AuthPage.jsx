@@ -12,7 +12,8 @@ const AuthPage = ({style}) => {
             <div className='green-header'>
                 <Header title="Авторизация"
                         text="Авторизуйтесь, чтобы войти в систему и начать работать"
-                        mtop="-20px"
+                        icon={require('../../media/authicon.jpg')}
+                        calendaricon="authicon"
                     />
             </div>
             <div className='authform-wrapper'>

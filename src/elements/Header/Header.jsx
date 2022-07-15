@@ -1,18 +1,19 @@
-import Button from '../Button/Button';
 
-const Header = ({title, text, mtop}) => {
+const Header = ({title, text, mtop, icon, calendaricon}) => {
     return(
         <>
-            <Button text={'Eco Jeli'} style={{width:'120px'}}/>
-                 <div className='header-container' style={{
+                 <div className={'header-container ' + calendaricon } style={{
                     marginTop:mtop
                  }}>
-                    <h1>{title}</h1>
-                    <img src={require('../../media/leaf.jpg')} alt="leaf"/>
+                    <h1 style={{
+                     borderBottom:"3px solid #67854D",
+                     paddingBottom:'5px'
+                    }}>{title}</h1>
+                    <img src={icon} alt="icon" />
                  </div>
                  <div className='about-text-text' style={{
                     width:'200px',
-                    marginTop:mtop
+                    marginTop:'3px'
                  }}>
                     {text}
                  </div>

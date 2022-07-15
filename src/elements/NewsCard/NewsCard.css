@@ -3,7 +3,7 @@
     height: 45vh;
     width: calc(60vw - 10px);
     display: flex;
-    border: 5px solid darkgreen;
+    border: 5px solid #4A6022;
     border-radius: 15px;
     justify-content: center;
 

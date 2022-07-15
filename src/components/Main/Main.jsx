@@ -3,11 +3,12 @@ import About from '../About/About';
 import './Main.css';
 import Events from '../Events/Events';
 import AuthPage from '../AuthPage/AuthPage';
+import Footer from '../Footer/Footer';
 
 const Main = () => {
     return(
         <div className="main-container">
-            <img src={require('../../media/manytreeline.jpg')}
+            <img src={require('../../media/onetreeline.jpg')}
                  alt="side trees"
                  style={{
                     position:'fixed',
@@ -22,15 +23,16 @@ const Main = () => {
                <About style={{paddingRight:'10px'}}/>
                <Events/> 
                <AuthPage/>
+               <Footer/>
             </div>
-            <img src={require('../../media/onetreeline.jpg')}
+            <img src={require('../../media/manytreeline.jpg')}
                  alt="side trees"
                  style={{
                     position:'fixed',
                     bottom:"10px",
-                    right:'-15px',
-                    height:'30%',
-                    width:'19%'
+                    right:'15px',
+                    height:'20%',
+                    width:'13%'
                  }}
                  />
         </div>

@@ -27,6 +27,19 @@
     height: 90%;
 }
 
+.calendaricon img{
+    width: 17%;
+    height: 80%;
+    margin-left: 10px;
+}
+
+.authicon img{
+    width: 20%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+
 .about-text-text {
     width: 50%;
     height: auto;
