@@ -25,13 +25,13 @@ const Main = () => {
                <AuthPage/>
                <Footer/>
             </div>
-            <img src={require('../../media/manytreeline.jpg')}
+            <img src={require('../../media/onetree.jpg')}
                  alt="side trees"
                  style={{
                     position:'fixed',
                     bottom:"10px",
                     right:'15px',
-                    height:'20%',
+                    height:'25%',
                     width:'13%'
                  }}
                  />

@@ -1,0 +1,89 @@
+.myclub-data-container {
+    height: auto;
+    min-width: 65%;
+    max-width: 65%;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-top: 50px;
+}
+
+.myclub-profile-container {
+    width: 60%;
+    height: 100%;
+    display: flex;
+}
+
+.myclub-profile-container .myclub-avatar {
+    position: relative;
+    border-radius: 50%;
+    border: 5px solid #9FCA3D;
+    height: 100%;
+    width: 65%;
+    background: url('https://avatars.mds.yandex.net/i?id=706bb13382495fbe327ff3d809d3239c-5221656-images-thumbs&n=13');
+    background-size: cover;
+    background-position: center;
+}
+
+.myclub-profile-container .myclub-profile-data {
+    height: 100%;
+    width: 90%;
+    border: 5px solid #9FCA3D;
+    margin-left: -150px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 180px;
+    padding-top: 30px;
+}
+
+.myclub-profile-data .myclub-profile-data-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    margin-top: 20px;
+}
+
+.myclub-profile-data-item p {
+    font-size: 20px;
+}
+
+.myclub-data-value {
+    font-weight: bold;
+    color: #75a20b;
+}
+
+.myclub-profile-about {
+    height: 100%;
+    width: 40%;
+    margin-left: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.underlined {
+    border-bottom: 3px solid #9FCA3D;
+    padding-bottom: 10px;
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+.myclub-profile-buttons {
+    width: 25%;
+    margin-left: 32%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.myclub-struct-container {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 50px;
+    padding: 20px;
+}
