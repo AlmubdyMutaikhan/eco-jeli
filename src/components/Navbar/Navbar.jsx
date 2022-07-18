@@ -38,21 +38,28 @@ const Navbar = () => {
                  
                  </div>
                  <div className='navbar-items-container'>
-              
+
                     <div className='navbar-item'>
                         <Link activeClass="active" to="about" spy={true} offset={-100} smooth={true}>
+                            <NavLink to="/">
                             {text[1].menu.about}
+                            </NavLink>
                         </Link>
                     </div>
                 
                     <div className='navbar-item'>
                         <Link activeClass="active" to="ecoevents" spy={true} offset={-50} smooth={true}>
-                            {text[1].menu.calendar}
+                            <NavLink to={'/'}>
+                                {text[1].menu.calendar}
+                            </NavLink>
+                            
                         </Link>
                     </div>
                     <div className='navbar-item'>
                         <Link activeClass="active" to="login" spy={true} offset={-70} smooth={true}>
-                            {text[1].menu.login}
+                            <NavLink to={'/'}>
+                                {text[1].menu.login}
+                            </NavLink>
                         </Link>
                     </div>
                  </div>
