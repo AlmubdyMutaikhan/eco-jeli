@@ -2,12 +2,24 @@ import './MyClub.css';
 import Button from '../../elements/Button/Button';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-
-
+import Header from '../../elements/Header/Header';
+import Footer from '../Footer/Footer';
 const MyClub = ({style}) => {
     return(
-        <div    className='page-main-section myclub-container'
+        <div    className='myclub-container'
+                id="myclub"
                 style={style}>
+                    <br/>
+                    <br/>
+               <div className='green-header'>
+                    <Header
+                    title="Мой эко-клуб"
+                    text="Бла бла бла бала бола балобол балоабол" 
+                    
+                    icon={require('../../media/calendaricon.jpeg')}
+                    calendaricon="calendaricon"
+                    />    
+            </div> 
             <div className='myclub-data-container'>
                 <div className='myclub-profile-container'>
                     <div className='myclub-avatar'>
@@ -70,6 +82,7 @@ const MyClub = ({style}) => {
                     </TabPanel>
                 </Tabs>
             </div>
+            <Footer/>
         </div>
     )
 }

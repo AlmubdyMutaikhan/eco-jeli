@@ -3,6 +3,7 @@ import { Link as NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import './Navbar.css';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
     const [text, setText] = useState([
@@ -24,7 +25,9 @@ const Navbar = () => {
         }
     ])
 
-    
+
+    const [email, setEmail] = useState('');
+    const {signoutUser} = useAuth();
     return (
         <div className='navbar-wrapper'>
             <div className='navbar-container'>
@@ -41,28 +44,52 @@ const Navbar = () => {
 
                     <div className='navbar-item'>
                         <Link activeClass="active" to="about" spy={true} offset={-100} smooth={true}>
-                            <NavLink to="/">
+                      
                             {text[1].menu.about}
-                            </NavLink>
+                          
                         </Link>
                     </div>
                 
                     <div className='navbar-item'>
                         <Link activeClass="active" to="ecoevents" spy={true} offset={-50} smooth={true}>
-                            <NavLink to={'/'}>
+                          
                                 {text[1].menu.calendar}
-                            </NavLink>
-                            
+                             
                         </Link>
                     </div>
                     <div className='navbar-item'>
-                        <Link activeClass="active" to="login" spy={true} offset={-70} smooth={true}>
-                            <NavLink to={'/'}>
-                                {text[1].menu.login}
-                            </NavLink>
+                        {localStorage.getItem('auth') && localStorage.getItem('token').length > 190 &&
+                            <Link activeClass="active" to="myclub" spy={true} offset={-70} smooth={true}>
+                     
+                                Мой клуб
+                      
                         </Link>
+
+                        }
+                        {!localStorage.getItem('auth') &&
+                        <Link activeClass="active" to="login" spy={true} offset={-70} smooth={true}>
+                      
+                                {text[1].menu.login}
+                          
+                        </Link>
+                        }
                     </div>
+                 
+                        {localStorage.getItem('auth') && localStorage.getItem('token').length > 190 &&
+                            <img src='https://cdn3.iconfinder.com/data/icons/material-line-thin/1024/enter-128.png'
+                                style={{
+                                    cursor:'pointer',
+                                    height:'50px',
+                                    width:'45px',
+                                    
+                                }}
+                                onClick={signoutUser}
+                            alt="logout"/>
+                        }
+                   
                  </div>
+
+
             </div>
         </div>
     )

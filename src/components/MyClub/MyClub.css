@@ -1,11 +1,17 @@
+.myclub-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .myclub-data-container {
     height: auto;
-    min-width: 65%;
-    max-width: 65%;
+    width: 100%;
     width: auto;
     display: flex;
     justify-content: space-between;
-    margin-left: 20%;
+  
     margin-top: 50px;
 }
 
@@ -74,16 +80,16 @@
 }
 
 .myclub-profile-buttons {
-    width: 25%;
-    margin-left: 32%;
+    width: 40%;
+    margin-left: 20%;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
 .myclub-struct-container {
-    width: 60%;
-    margin-left: 20%;
+    width: 90%;
+    margin-left: 5%;
     margin-top: 50px;
     padding: 20px;
 }

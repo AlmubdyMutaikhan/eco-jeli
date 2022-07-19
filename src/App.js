@@ -8,7 +8,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import MyClub from './components/MyClub/MyClub';
 
 
 function App() {
@@ -18,9 +17,9 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Main/>}/>
-          <Route path='/myclub' element={<MyClub/>}/>
         </Routes>
       </BrowserRouter>
+      
     </div>
   );
 }
