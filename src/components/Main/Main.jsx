@@ -5,6 +5,7 @@ import Events from '../Events/Events';
 import AuthPage from '../AuthPage/AuthPage';
 import Footer from '../Footer/Footer';
 import MyClub from '../MyClub/MyClub';
+import { getCookie } from '../../utils/cookies';
 
 const Main = () => {
     return(
@@ -23,12 +24,12 @@ const Main = () => {
                <NewsSlider style={{height:'50%', width:'calc(100% - 10px)'}}/>
                <About style={{paddingRight:'10px'}}/>
                <Events/> 
-               {!localStorage.getItem('auth') && <>
+               {!getCookie('auth') && <>
                   <AuthPage/>
                   <Footer/>
                   </>
                }
-               {localStorage.getItem('auth') && localStorage.getItem('token').length > 190 && 
+               {getCookie('auth') && getCookie('token').length > 190 && 
                   <>
                      <MyClub/>
                   

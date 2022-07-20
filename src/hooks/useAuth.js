@@ -1,12 +1,10 @@
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
+import {getCookie, setCookie} from '../utils/cookies';
 
 export default function useAuth( setLoading, setMessage, setStatus ) {
-    const navigate = useNavigate();
 
     const isAuthenticated = async () => {
-        const token = localStorage.getItem('token');
+        const token = getCookie('token');
         if(!token || token === null || token === undefined || token === '') { return false; }
         
         try {
@@ -27,13 +25,13 @@ export default function useAuth( setLoading, setMessage, setStatus ) {
             console.log(email, password);
             setLoading(true);
             const user = await axios.post('/auth/signin', {email, password});
-            localStorage.setItem('token', user.data.token);
+            setCookie('token', user.data.token);
             setLoading(false);
             setMessage("Успешная авторизация!");
             setStatus('ok');
 
             setTimeout(async () => {
-                localStorage.setItem('auth',true);
+                setCookie('auth',true);
                 window.location.reload();
             }, 1000);
 
@@ -48,8 +46,7 @@ export default function useAuth( setLoading, setMessage, setStatus ) {
     }
 
     const signoutUser = async () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('auth');
+        document.cookie="";
         window.location.reload();
     } 
 

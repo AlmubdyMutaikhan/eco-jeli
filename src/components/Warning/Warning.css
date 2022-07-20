@@ -1,14 +1,19 @@
 .warning-container {
     width: 100%;
+    position: absolute;
     background: transparent;
     color: white;
     padding: 10px 30px;
-    width: 100%;
+    width: 300px;
+    height: auto;
     border-radius: 5px;
     text-align: center;
     font-size: 20px;
-    z-index: 1111111;
+    z-index: 111111111111;
     font-family: var(--montserrat);
+    margin-left: 15%;
+    margin-bottom: 20px;
+
 }
 
 .ok {

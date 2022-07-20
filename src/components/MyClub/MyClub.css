@@ -27,22 +27,30 @@
     border: 5px solid #9FCA3D;
     height: 100%;
     width: 65%;
-    background: url('https://avatars.mds.yandex.net/i?id=706bb13382495fbe327ff3d809d3239c-5221656-images-thumbs&n=13');
-    background-size: cover;
-    background-position: center;
+   
 }
 
+.myclub-avatar img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
 .myclub-profile-container .myclub-profile-data {
     height: 100%;
-    width: 90%;
+    width: 100%;
     border: 5px solid #9FCA3D;
     margin-left: -150px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
     display: flex;
+    
     flex-direction: column;
     padding-left: 180px;
     padding-top: 30px;
+    padding-right: 15px;
 }
 
 .myclub-profile-data .myclub-profile-data-item {
@@ -72,6 +80,23 @@
     justify-content: space-between;
 }
 
+.myclub-profile-about .myclub-profile-about-label {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.myclub-profile-about .myclub-profile-about-text {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 15px;
+}
+
 .underlined {
     border-bottom: 3px solid #9FCA3D;
     padding-bottom: 10px;
@@ -80,16 +105,67 @@
 }
 
 .myclub-profile-buttons {
-    width: 40%;
-    margin-left: 20%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
-
+.edit {
+    color:red;
+}
 .myclub-struct-container {
     width: 90%;
     margin-left: 5%;
     margin-top: 50px;
     padding: 20px;
 }
+.myclub-struct-container h2 {
+    width: 70%;
+}
+.select {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    outline: none;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  }
+
+  textarea {
+    width: 110%;
+    height: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+  }
+
+  .participant-card {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px black;
+    padding: 20px;
+    justify-content: space-around;
+  }
+
+  .myclub-struct-edit-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }

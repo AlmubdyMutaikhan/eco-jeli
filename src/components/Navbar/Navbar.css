@@ -65,3 +65,13 @@
     color: white;
 }
 
+.user-auth-show {
+    position: absolute;
+    right: 3%;
+    top: 0;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

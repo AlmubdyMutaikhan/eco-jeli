@@ -9,6 +9,9 @@
 
 :root {
   --raleway: 'Raleway', sans-serif;
+  --select-border: #75a20b;
+  --select-focus: #75a20b;
+  --select-arrow: var(--select-border);
 }
 
 ::-webkit-scrollbar {
@@ -46,4 +49,12 @@
 a {
   text-decoration: none;
   color: black;
+}
+
+input {
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #75a20b;
+  font-size: 17px;
 }
