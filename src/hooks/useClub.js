@@ -13,6 +13,19 @@ export default function useClub(setLoading, setMsg, setStatus) {
         }
     }
 
+    const getAllClubs = async (token) => {
+        try {   
+            const club = await axios.get('/club/all', {params:{
+                token
+            }});
+            console.log(club);
+            return club.data.club;
+        } catch(err) {
+            console.log(err);
+            throw new Error('Упс, что-то пошло не так...');
+        }
+    }
+
     const updateClubStruct = async (leaderID, members) => {
         try {
             setLoading(true);
@@ -53,6 +66,7 @@ export default function useClub(setLoading, setMsg, setStatus) {
     return {
         getClub,
         updateClubStruct,
-        saveClubData
+        saveClubData,
+        getAllClubs
     }
 }

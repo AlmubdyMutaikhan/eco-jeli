@@ -6,8 +6,21 @@ import AuthPage from '../AuthPage/AuthPage';
 import Footer from '../Footer/Footer';
 import MyClub from '../MyClub/MyClub';
 import { getCookie } from '../../utils/cookies';
+import Club from '../Club/Club';
+import AllClubs from '../AllClubs/AllClubs';
 
 const Main = () => {
+
+    const ClubShow = () => {
+       if(getCookie('auth') && getCookie('token').length > 190) {
+         if(!getCookie('super')) {
+            return <MyClub/>
+         } else if(getCookie('super') === 'true') {
+            return <AllClubs/>
+         } 
+       }     
+    } 
+
     return(
         <div className="main-container">
             <img src={require('../../media/onetreeline.jpg')}
@@ -29,13 +42,7 @@ const Main = () => {
                   <Footer/>
                   </>
                }
-               {getCookie('auth') && getCookie('token').length > 190 && 
-                  <>
-                     <MyClub/>
-                  
-                  </>
-                  
-               }
+               {ClubShow()}
                
             </div>
             

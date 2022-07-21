@@ -26,6 +26,7 @@ export default function useAuth( setLoading, setMessage, setStatus ) {
             setLoading(true);
             const user = await axios.post('/auth/signin', {email, password});
             setCookie('token', user.data.token);
+            setCookie('super', user.data.super);
             setLoading(false);
             setMessage("Успешная авторизация!");
             setStatus('ok');
