@@ -26,7 +26,8 @@
     border-radius: 50%;
     border: 5px solid #9FCA3D;
     height: 100%;
-    width: 65%;
+    width: 100%;
+    background: white;
    
 }
 .myclub-avatar input {
@@ -52,6 +53,8 @@
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     display: flex;
+    background: white;
+
     
     flex-direction: column;
     padding-left: 180px;
@@ -157,6 +160,7 @@
   }
 
   .participant-card {
+    z-index: 999999;
     margin-top: 20px;
     display: flex;
     flex-direction: column;

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import PartCard from '../../elements/PartCard/PartCard';
 import Footer from '../Footer/Footer';
@@ -5,8 +6,10 @@ import Footer from '../Footer/Footer';
 const Club = ({city, name, _id, key, last, description, members, logo, style}) => {
 
     const getMembers = (type) => {
+        
         const memberRes = members.map((member, key) => {
             //console.log(key);
+
             return type === member.role && <PartCard 
                     fname={member.fname}
                     sname={member.sname}
@@ -22,12 +25,30 @@ const Club = ({city, name, _id, key, last, description, members, logo, style}) =
         return memberRes;
     }
 
+    const setLen = (type) => {
+        let col = 1;
+        members.map((member) => {
+            if(member.role === type) {col+=1;}
+        })
+        setHeight(col);
+    }
+
+
+    const [height, setHeight] = useState(1);
+
+    const tabStyle = last ? {} : {
+        zIndex:'222',
+        position:'absolute',
+        width:'60%'
+    };
 
 
     return (
         <div    className='myclub-container'
         id="myclub"
-        style={style}>
+        style={{
+            height:(height*45 + 'vh')
+        }}>
          
          
     <div className='myclub-data-container'>
@@ -86,23 +107,61 @@ const Club = ({city, name, _id, key, last, description, members, logo, style}) =
         </div>
       
         <Tabs style={{
-                            marginTop:'30px'
+                            marginTop:'30px',
+                            zIndex:'222',
+                          
+                           background:'white'
                         }}>
             <TabList>
-            <Tab>Руководитель</Tab>
-            <Tab>SMM-специалист</Tab>
-            <Tab>Организатор</Tab>
-            <Tab>Админы</Tab>
-            <Tab>{key}</Tab>
+            <Tab style={{
+                background:'white'
+            }}
+                onClick={() => {
+                    setLen('leader');
+                }}
+            >Руководитель</Tab>
+            <Tab style={{
+                background:'white'
+            }} onClick={() => {
+                setLen('smm');
+            }}>SMM-специалист</Tab>
+            <Tab style={{
+                background:'white'
+            }} onClick={() => {
+                setLen('org');
+            }}>Организатор</Tab>
+            <Tab style={{
+                background:'white'
+            }} onClick={() => {
+                setLen('admin');
+            }}>Админы</Tab>
+            <Tab style={{
+                background:'white'
+            }} onClick={() => {
+                setLen('prt');
+            }}>Участники</Tab>
             </TabList>
-            <TabPanel>
+            <TabPanel style={tabStyle}>
                 {getMembers('leader')}
                 
             </TabPanel>
-            <TabPanel>
+            <TabPanel style={tabStyle}>
                 {getMembers('smm')}
                         
             </TabPanel>
+            <TabPanel style={tabStyle}>
+                {getMembers('org')}
+                        
+            </TabPanel>
+            <TabPanel style={tabStyle}>
+                {getMembers('admin')}
+                        
+            </TabPanel>
+            <TabPanel style={tabStyle}>
+                {getMembers('prt')}
+                        
+            </TabPanel>
+
         </Tabs>
         <br/>
         <br/>

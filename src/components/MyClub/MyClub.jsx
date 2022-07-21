@@ -328,6 +328,19 @@ const MyClub = ({style}) => {
                         {getMembers('smm')}
                         {editMode2 && <EditPartCard addUser={addUser}/>}
                     </TabPanel>
+                    <TabPanel>
+                        {getMembers('org')}
+                        {editMode2 && <EditPartCard addUser={addUser}/>}
+                    </TabPanel>
+                    <TabPanel>
+                        {getMembers('admin')}
+                        {editMode2 && <EditPartCard addUser={addUser}/>}
+                    </TabPanel>
+                    <TabPanel>
+                        {getMembers('prt')}
+                        {editMode2 && <EditPartCard addUser={addUser}/>}
+                    </TabPanel>
+
                 </Tabs>
             </div>
             <Footer/>
