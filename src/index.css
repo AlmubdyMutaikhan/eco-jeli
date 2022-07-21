@@ -58,3 +58,36 @@ input {
   border: 1px solid #75a20b;
   font-size: 17px;
 }
+
+.avatar-file-submit {
+  background: white;
+  width: 100%;
+}
+.avatar-file-submit::-webkit-file-upload-button {
+  visibility: hidden;
+  background: white;
+}
+
+
+.avatar-file-submit::before {
+  content: 'Загрузить фото клуба';
+  display: inline-block;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  font-family: var(--montserrat);
+}
+.avatar-file-submit:hover::before {
+  border-color: black;
+}
+.avatar-file-submit:active::before {
+  background: white;
+}

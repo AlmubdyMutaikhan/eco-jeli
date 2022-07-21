@@ -29,6 +29,12 @@
     width: 65%;
    
 }
+.myclub-avatar input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 11111111111;
+}
 
 .myclub-avatar img {
     object-fit: cover;

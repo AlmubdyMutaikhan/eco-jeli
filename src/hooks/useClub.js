@@ -31,8 +31,28 @@ export default function useClub(setLoading, setMsg, setStatus) {
         }
     }
 
+    const saveClubData = async (leaderID, club) => {
+        try {
+            setLoading(true);
+            console.log(club);
+            const res = await axios.post('/club', {
+                leaderID,
+                club
+            });
+            console.log(res);
+            setMsg('Успешно обновили данные вашего клуба')
+            setLoading(false);
+            setStatus(true);
+            return club;
+        } catch(err) {
+            console.log(err);
+            throw new Error('Упс, что-то пошло не так...');
+        }
+    }
+
     return {
         getClub,
-        updateClubStruct
+        updateClubStruct,
+        saveClubData
     }
 }

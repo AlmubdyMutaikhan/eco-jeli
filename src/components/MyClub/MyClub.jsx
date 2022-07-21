@@ -12,13 +12,18 @@ import EditPartCard from '../../elements/PartCard/EditPartCard';
 import Loading from '../Loading/Loading';
 import Warning from '../Warning/Warning';
 
+
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../firebase';
+
+
 const MyClub = ({style}) => {
 
     const {isAuthenticated} = useAuth();
     const [status, setStatus] = useState(false);
     const [loading, setLoading] = useState(false);
     const [msg, setMsg] = useState(false);
-    const {getClub, updateClubStruct} = useClub(setLoading, setMsg, setStatus);
+    const {getClub, updateClubStruct, saveClubData} = useClub(setLoading, setMsg, setStatus);
     const [clubName, setClubName] = useState('loading...');
     const [logo, setLogo] = useState('');
     const [city, setCity] = useState('loading...');
@@ -26,13 +31,31 @@ const MyClub = ({style}) => {
 
     const [members, setMembers] = useState([]);
     const [origMembers, setOrigMembers] = useState([]);
-
+ 
     const [clubObj, setClubObj] = useState({});
     const [editMode, setMode] = useState(false); 
     const [editMode2, setMode2] = useState(false); 
-
     
+    const [logoFile, setLogoFile] = useState(null);
 
+    const uploadImage = () => {
+        const storageRef = ref(storage, `/logos/logo-${clubObj._id}.jpg`);
+            const uploadTask = uploadBytesResumable(storageRef, logoFile);
+            setLoading(true);
+            uploadTask.on("state_changed", 
+                () => {},
+                (err) => {
+                    console.log(err);
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref)
+                    .then(res => {
+                        localStorage.setItem('img', res);
+                        updateClubData();
+
+                    })
+            });
+    }
 
     const loadData = async () => {
         try {
@@ -74,6 +97,15 @@ const MyClub = ({style}) => {
         }
     }
 
+
+    const fileHandler = (e) => {
+        e.preventDefault();
+        const file = e.target.files[0];
+        const objectUrl = URL.createObjectURL(file);
+        setLogo(objectUrl);
+        setLogoFile(file);
+    }
+
     const getMembers = (type) => {
         const memberRes = members.map((member, key) => {
             //console.log(key);
@@ -92,6 +124,16 @@ const MyClub = ({style}) => {
         return memberRes;
     }
 
+    const setCities = () => {
+        const cities = ['Выберите город/школу', 'Караганда НИШ ХБН', 'Көкшетау НИШ ХБН'];
+        const options = cities.map((city, key) =>  <option value={city} key={key}>{city}</option>)
+        return <select className='select' onChange={(e) => {
+            setCity(e.target.value);
+        }}>
+               {options}                  
+              </select>
+    }
+
     const addUser = (member) => {
         setMembers(prev => [...prev, member]);
     }
@@ -107,6 +149,44 @@ const MyClub = ({style}) => {
         setMembers(newArr);
     }
 
+    const reset = () => {
+                setClubName(clubObj.name);
+                setCity(clubObj.city);
+                setLogo(clubObj.logo);
+                setDescription(clubObj.description);
+    }
+
+
+    const updateClubData = async () => {
+        try {
+            const user = await isAuthenticated();
+            
+            if(user.status && user.payload) {
+                const club = {description, clubName, city, logo : localStorage.getItem('img') ? localStorage.getItem('img') : logo};
+                const res = await saveClubData(user.payload.user._id, club);
+                if(res) {
+                    setClubObj({description, clubName, city, logo : localStorage.getItem('img') ? localStorage.getItem('img') : logo, _id:clubObj._id});
+                    setTimeout(()=>{
+                        setStatus(false);
+                        setMode(false);
+                        localStorage.removeItem('img');
+                    }, 1100);
+                }
+               
+            }
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+
+    const fullUpdate = async () => {
+        if(logoFile) {
+            uploadImage();
+        } else {
+            updateClubData();
+        }
+    }
 
     return(
         <div    className='myclub-container'
@@ -129,23 +209,19 @@ const MyClub = ({style}) => {
                         <img src={logo}
                              alt="logo"
                         />
+                        <br/>
+                        {
+                            editMode && <input type='file' className='avatar-file-submit' onChange={fileHandler} />
+                        }
+
                     </div>
+                   
                     <div className='myclub-profile-data'>
                         <div className='myclub-profile-data-item'>
                             <p>Город:</p>
                             {!editMode && <p className='myclub-data-value'>{city}</p> }
                             {editMode && 
-                                <select className='select'>
-                                    <option>Выберите город</option>
-                                    <option>Нур-Султан</option>
-                                    <option>Караганда</option>
-                                    <option>Алматы</option>
-                                    <option>Шымкент</option>
-                                    <option>Актау</option>
-                                    <option>Атырау</option>
-                                    <option>Кокшетау</option>
-                                    <option>Караганда</option>
-                                </select>
+                                setCities()
                             }
                             
                         </div>
@@ -153,12 +229,19 @@ const MyClub = ({style}) => {
                             <p>Название:</p>
                             {!editMode  && <p className='myclub-data-value'>{clubName}</p>}
                             {editMode && 
-                                <input type="text" placeholder={clubName} required/>
+                                <input type="text" placeholder='Название клуба...' value={clubName} required
+                                    onChange={(e) => {
+                                        setClubName(e.target.value);
+                                    }}
+                                />
                             }
                         </div>
                         <div className='myclub-profile-data-item'>
-                            <p>ID клуба</p>
-                            <p className='myclub-data-value'>{clubObj._id}</p>
+                    
+                                <p>ID клуба</p>
+                                <p className='myclub-data-value'>{clubObj._id}
+                                </p>
+
                         </div>
                     </div>
                 </div>
@@ -171,8 +254,10 @@ const MyClub = ({style}) => {
                             {description}
                             </p>
                         }
-                        {editMode && <textarea>
-                            {description}
+                        {editMode && <textarea onChange={(e) => {
+                            setDescription(e.target.value);
+                        }} value={description}>
+                            
                             </textarea>}
                     </div>
                     
@@ -181,10 +266,13 @@ const MyClub = ({style}) => {
             
             <div className='myclub-profile-buttons'>
                 {!editMode && <Button text={'Журнал'} style={{color:'white', fontWeight:'bold'}}/>}
-                {editMode && <Button text={'Сохранить'} style={{color:'white', fontWeight:'bold'}}/>}
+                {editMode && <Button text={'Сохранить'} 
+                                onClick={fullUpdate}
+                            style={{color:'white', fontWeight:'bold'}}/>}
                 <Button text={editMode ? 'Сбросить' :'Редактировать'} 
                         onClick={() => {
                             setMode(prev => !prev);
+                            reset();
                         }}
                         style={ editMode ? {backgroundColor:'red', color:'white',fontWeight:'bold'} : {color:'white', fontWeight:'bold'}}/>
                 
@@ -200,10 +288,19 @@ const MyClub = ({style}) => {
                         onClick={updateMembers}
                     style={{color:'white', fontWeight:'bold'}}/>}
                     {loading && <Loading/>}
-                    {status && <Warning status="ok">
+                    {status && <Warning status="ok" style={{
+                        position:'fixed',
+                        right:'10px',
+                        bottom:'20px',
+                        width:'300px',
+                        height:'auto',
+                        textAlign:'center'
+                    }}>
+                        <p style={{fontSize:'27px', fontWeight:'bold'}}>Успех!</p>
+                        <br/>
                         {msg}
-                        </Warning>}
-
+                        </Warning>
+                    }
                     <Button text={editMode2 ? 'Сбросить' :'Редактировать'} 
                         onClick={() => {
                             setMode2(prev => !prev);

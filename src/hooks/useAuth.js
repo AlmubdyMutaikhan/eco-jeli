@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getCookie, setCookie} from '../utils/cookies';
+import {eraseCookie, getCookie, setCookie} from '../utils/cookies';
 
 export default function useAuth( setLoading, setMessage, setStatus ) {
 
@@ -46,7 +46,8 @@ export default function useAuth( setLoading, setMessage, setStatus ) {
     }
 
     const signoutUser = async () => {
-        document.cookie="";
+        eraseCookie('token');
+        eraseCookie('auth');
         window.location.reload();
     } 
 
