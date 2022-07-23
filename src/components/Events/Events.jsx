@@ -1,33 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EventCard from '../../elements/EventCard/EventCard';
 import Header from '../../elements/Header/Header';
+import useEvent from '../../hooks/useEvent';
 import './Events.css';
 
 const Events = () => {
     
-    const events = [{
-        name:'Aa',
-        desc:'AAaaa',
-        place:'aaa',
-        date:'aaa' ,
-        avatar:'https://rus.azattyq-ruhy.kz/userfiles/%D0%BA%D1%8B%D1%80%D0%B3%D1%8B%D0%B7%D1%81%D1%82%D0%B0%D0%BD/2009100936484325g.jpg'  
-    },
-    {
-        name:'Aa',
-        desc:'AAaaa',
-        place:'aaa',
-        date:'aaa' ,
-        avatar:'https://avatars.mds.yandex.net/i?id=3b5495c213271b6368c176f9a5506b9f-4545247-images-thumbs&n=13'   
-    },
+    const [events, setEvents] = useState([{
+        avatar:'aa',
+        desc:'aaa'
+    }]);
+    const {getAllEvents} = useEvent();
 
-    {
-        name:'Aa',
-        desc:'AAaaa',
-        place:'aaa',
-        date:'aaa',  
-        avatar:'https://avatars.mds.yandex.net/i?id=4f71acfbdb384fa4ed59bddda7dd5c56-4936140-images-thumbs&n=13'  
-    },
-]
+    const loadEvents = async () => {
+        const eventsDoc = await getAllEvents();
+        if(eventsDoc && eventsDoc.length > 0) {
+            setEvents(eventsDoc);
+            setShow({img:eventsDoc[0].avatar, desc:eventsDoc[0].desc});
+            } 
+        
+        console.log(eventsDoc);
+    }
+
+    useEffect(() => {
+        loadEvents();
+    }, []);
 
     const [show, setShow] = useState({
         img : events[0].avatar,
@@ -43,7 +40,7 @@ const Events = () => {
                 <div className='green-header'>
                     <Header
                     title="ЭКО-события"
-                    text="Бла бла бла бала бола балобол балоабол" 
+                    text="Тут представлен список эко-событий. " 
                     
                     icon={require('../../media/calendaricon.jpeg')}
                     calendaricon="calendaricon"
@@ -58,6 +55,8 @@ const Events = () => {
                                         key={key}
                                         id={key}
                                         changeShow={changeShow}
+                                        avatar={event.avatar}
+                                        link={event.link}
                             />
                         ))}
                     </div>

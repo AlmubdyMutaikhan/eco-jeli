@@ -8,7 +8,7 @@ const About = ({style}) => {
                 <br/>
                 <Button text={'Eco Jeli'} style={{width:'120px'}}/>
                 <br/>
-                 <Header    text={'Мы группа лю'}
+                 <Header    text={'Мы группа людей которые стремятся изменить мир к лучшем'}
                             title={'О нас'}
                             icon={require('../../media/leaf.jpg')}
                             />
@@ -17,7 +17,7 @@ const About = ({style}) => {
                 />
             </div>
             <div className='about-img'>
-                <img src={require('../../media/club.jpg')} alt="club"/>
+                <img src={require('../../media/logo.png')} alt="logo"/>
             </div>
         </div>
     )
