@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Article from './components/Article/Article';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Main/>}/>
+          <Route path='/blog/:blogID' element={<Article/>}/>
         </Routes>
       </BrowserRouter>
       

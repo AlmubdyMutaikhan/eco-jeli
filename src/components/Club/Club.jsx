@@ -30,11 +30,14 @@ const Club = ({city, name, _id, key, last, description, members, logo, style}) =
         members.map((member) => {
             if(member.role === type) {col+=1;}
         })
+        if(col === 1) {
+            col += 1;
+        }
         setHeight(col);
     }
 
 
-    const [height, setHeight] = useState(1);
+    const [height, setHeight] = useState(2);
 
     const tabStyle = last ? {} : {
         zIndex:'222',

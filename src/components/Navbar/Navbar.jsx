@@ -52,6 +52,7 @@ const Navbar = () => {
                  <div className='navbar-logo-container'>
                     <img src={require('../../media/logo.png')}
                          alt="logo"
+                        
                     />
                     <NavLink to='/'>
                         <h1>Eco Jeli</h1>

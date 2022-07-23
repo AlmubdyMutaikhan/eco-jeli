@@ -30,6 +30,11 @@
     background: white;
 }
 
+.navbar-logo-container img {
+    height: 80px;
+    width: 95px;
+}
+
 .navbar-logo-container h1 {
     line-height: 80px;
     margin-left: -15px;
