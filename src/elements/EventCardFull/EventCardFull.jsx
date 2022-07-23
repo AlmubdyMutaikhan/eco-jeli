@@ -21,7 +21,7 @@ const EventCardFull = ({title, date, id, avatar, desc, link}) => {
                 }}>
                     <img src={'https://cdn1.iconfinder.com/data/icons/office-322/24/time-date-schedule-event-calendar-appointment-128.png'} alt="date"
                     />
-                    <p>{date.slice(0, 10)}</p>
+                    <p>{date ? date : ''}</p>
                 </div>
             </div>
             <div className="event-btns" style={{width:'50%'}}>
