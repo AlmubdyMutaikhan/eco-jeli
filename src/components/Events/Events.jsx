@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import Button from '../../elements/Button/Button';
 import EventCard from '../../elements/EventCard/EventCard';
 import Header from '../../elements/Header/Header';
 import useEvent from '../../hooks/useEvent';
@@ -68,6 +70,10 @@ const Events = () => {
                     </div>
                     
                 </div>
+                <br/>
+                <NavLink to='/events'>
+                    <Button text={'Все события'} style={{width:'20%',marginLeft:'80%'}} />
+                </NavLink>
                 
                 
             </div>

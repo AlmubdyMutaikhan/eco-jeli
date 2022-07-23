@@ -1,0 +1,56 @@
+.event-card {
+    width: 400px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid darkgreen;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.event-card .event-title {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-events {
+    margin-top: -25px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-events-cards {
+    width: 50%;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+}
+
+.main-events  .main-events-photo {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-events-photo img {
+    height: 60%;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.main-events-photo p {
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+    border: 2px solid darkgreen;
+    margin-top: 10px;
+    border-radius: 10px;
+}

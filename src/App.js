@@ -9,6 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import Article from './components/Article/Article';
+import AllEvents from './components/AllEvents/AllEvents';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/blog/:blogID' element={<Article/>}/>
+          <Route path='/events' element={<AllEvents/>}/>
         </Routes>
       </BrowserRouter>
       
