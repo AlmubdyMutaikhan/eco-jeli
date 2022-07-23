@@ -1,8 +1,9 @@
 import './Footer.css';
 
-const Footer = () => {
+const Footer = ({style}) => {
     return(
-        <div className="footer-container">
+        <div className="footer-container"
+        style={style}>
             Все права защищены (c) 2022.
         </div>
     )

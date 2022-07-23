@@ -11,7 +11,19 @@ export default function useNews(setLoading, setMsg, setStatus) {
         }
     }
 
+
+    const getNewsOne = async (id) => {
+        try {
+            const blog = await axios.get('/blog/'+id);
+            return blog.data.blog;
+        } catch(err) {
+            console.log(err);
+            return null;
+        }
+    }
+
     return {
-        getNews
+        getNews,
+        getNewsOne
     }
 }
