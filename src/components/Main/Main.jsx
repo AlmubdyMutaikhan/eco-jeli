@@ -6,7 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import Footer from '../Footer/Footer';
 import MyClub from '../MyClub/MyClub';
 import { getCookie } from '../../utils/cookies';
-import Club from '../Club/Club';
+
 import AllClubs from '../AllClubs/AllClubs';
 import EventCalendar from '../EventCalendar/EventCalendar';
 
@@ -37,7 +37,7 @@ const Main = () => {
             <div className='main-content'>
                <NewsSlider style={{height:'50%', width:'calc(100% - 10px)'}}/>
                <About style={{paddingRight:'10px'}}/>
-               <EventCalendar/>
+               <Events/>
                {!getCookie('auth') && <>
                   <AuthPage/>
                   <Footer/>
