@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import axios from 'axios';
 
-const uris = ['https://eco-jeli-api.vercel.app/', 'http://localhost:3001']
+const uris = ['https://ecojeli-api.herokuapp.com/', 'http://localhost:3001']
 axios.defaults.baseURL = uris[0];
 
 
