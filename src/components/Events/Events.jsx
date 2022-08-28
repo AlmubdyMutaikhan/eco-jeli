@@ -53,7 +53,7 @@ const Events = () => {
                     <div className='main-events-cards'>
                         {events.map((event, key) => (
                             <EventCard title={event.name}
-                                        date={event.desc}
+                                        date={event.date}
                                         key={key}
                                         id={key}
                                         changeShow={changeShow}
