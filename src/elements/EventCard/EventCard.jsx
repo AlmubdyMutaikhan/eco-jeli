@@ -4,7 +4,7 @@ import './EventCard.css';
 
 const EventCard = ({title, date, id, changeShow, link}) => {
     useEffect(() => {
-        console.log(link);
+        console.log(date);
     }, []);
     
     return (
@@ -18,7 +18,7 @@ const EventCard = ({title, date, id, changeShow, link}) => {
                 }}>
                     <img src={'https://cdn1.iconfinder.com/data/icons/office-322/24/time-date-schedule-event-calendar-appointment-128.png'} alt="date"
                     />
-                    <p>{date.slice(0, 10)}</p>
+                <p>{date}</p>
                 </div>
             </div>
             <div className="event-btns">
